@@ -2,12 +2,36 @@
 
 //------------------------write your answer function(s) here---------------------//
 
+let fact x =
+    if x = 0 then 1.0
+    else List.reduce (*) [1.0..float x]
+
+// let taylor x n =
+let cos theta n= 
+    let term x index i=
+        let coe = if index % 2 = 0 then 1.0 else -1.0
+        coe * ((x ** (float i)) / (fact i))
+    if n = 0 then 1.0
+    else List.mapi (term theta) [0..2..n] |> List.reduce (+) 
+
+    
+
+let sin theta n= 
+    let term x index i=
+        let coe = if index % 2 = 0 then 1.0 else -1.0
+        coe * ((x ** (float i)) / (fact i))
+    if n = 0 then 0.0
+    else    List.mapi (term theta) [1..2..n] |> List.reduce (+) 
+let resul theta n = (cos theta n,sin theta n)
+
+
 // top-level subfunctions of polarToCartesianApprox (if any)
 
 /// answer to Tick1
 // the header given here is correct.
 let polarToCartesianApprox (r,theta) n = 
-    failwithf "Tick1 not yet implemented" // replace this line with your top-level implementation
+    (r * (cos theta n), r * (sin theta n)) 
+
 
 
 //--------------------testbench code - DO NOT CHANGE-----------------------------//
