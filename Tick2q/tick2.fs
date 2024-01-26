@@ -13,7 +13,7 @@ module PartACase2 =
 
 module PartACase3 =
     () // dummy value to make submodule non-empty
-    // One record type, three data values of this type. Choose suitable names.
+    // One type, three data values of this type. Choose suitable names.
 
 //---------------------------Tick2 PartB case 2 skeleton code-------------------------------//
 
@@ -64,13 +64,15 @@ module PartC =
     /// 3. Return Uplift = Some uplift if total is in the valid possible uplift range (0 - -2.5%) of boundary.
     let upliftFunc 
         (marks: Marks) 
-        (boundaryMark: float)
         (boundary:string) 
         (course: string)
             : Result<{|IsAboveBoundary: bool; Uplift:float option|}, string> =
         // Use markTotal to calculate total from marks
         // Also return an error if markTotal fails to calculate a mark
         // Ok return type is an anonymous record see link in WS2.
+        // upliftFunc is assumed (when implemented) to take boundary info from a value defined above
+        // with whatever data structure is used for it. In Part C you do not implement
+        // upliftFunc and so need not consider any of this.
         failwithf "Not Implemented" // do not change - implementation not required
 
     /// Given a list of boundaries, and a course, and a student's marks:
@@ -88,7 +90,7 @@ module PartC =
         // Assume that classify is correct unless student is within uplift range of a given boundary,
         // If student is within uplift range of a boundary `boundaryName` work out classification as:
             // let total = markTotal marks course
-            // let effectiveMark = total + upliftFunc boundaryMark boundaryName course
+            // let effectiveMark = total + upliftFunc marks boundaryName course
             // let className = classify course effectiveMark
             // Return Ok classname or an error if there is any error.
             // (option and error returns ignored in above comments, must be dealt with)
